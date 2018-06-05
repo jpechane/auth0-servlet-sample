@@ -28,6 +28,7 @@
     </div>
     <div class="jumbotron">
         <h3>Hello ${userId}!</h3>
+        <h3>Hello ${email}!</h3>
     </div>
     <div class="row marketing">
         <div class="col-lg-6">

@@ -22,7 +22,9 @@ repositories {
 
 dependencies {
     compile 'com.auth0:mvc-auth-commons:1.0.0'
+    compile 'com.auth0:java-jwt:3.3.0'
     compile 'javax.servlet:javax.servlet-api:3.1.0'
-    runtime 'javax.servlet:jstl:1.2'
+    compile 'javax.servlet:jstl:1.2'
     testCompile 'junit:junit:4.12'
+    compile 'javax.enterprise:cdi-api:1.2'
 }

@@ -2,6 +2,7 @@ package com.auth0.example;
 
 import com.auth0.SessionUtils;
 
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,6 +12,8 @@ import java.io.IOException;
 
 @WebServlet(urlPatterns = {"/portal/home"})
 public class HomeServlet extends HttpServlet {
+	@Inject
+	private UserInfo userInfo;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
@@ -20,6 +23,9 @@ public class HomeServlet extends HttpServlet {
             req.setAttribute("userId", accessToken);
         } else if (idToken != null) {
             req.setAttribute("userId", idToken);
+        }
+        if (userInfo != null) {
+        	req.setAttribute("email", userInfo.getEmail());
         }
         req.getRequestDispatcher("/WEB-INF/jsp/home.jsp").forward(req, res);
     }
